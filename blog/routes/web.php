@@ -25,8 +25,13 @@ Route::get('about_us', function () {
 });
 
 
+Route::get('publish_article', function () {
+    return view('publish_article');
+});
+
 Route::get('author_dashboard', function () {
     return view('author_dashboard');
 });
+
 
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');

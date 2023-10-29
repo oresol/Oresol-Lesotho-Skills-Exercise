@@ -40,10 +40,12 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#">Write Article</a>
+        <a href="publish_article">Write Article</a>
         <a href="#">Published Articles</a>
         <a href="#">Services</a>
     </div>
+
+    @yield('content')
 
     <!-- Add Bootstrap JS and Popper.js scripts (required for Bootstrap) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

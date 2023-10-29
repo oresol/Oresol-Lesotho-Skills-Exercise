@@ -19,7 +19,7 @@ class AuthorLoginController extends Controller
         }
 
         if ($user->password == $password) {
-            return view('about_us');
+            return view('publish_article');
         } else {
             return redirect()->back()->with('message', 'Login failed: Incorrect password');
         }
