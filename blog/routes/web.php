@@ -23,3 +23,10 @@ Route::get('login', function () {
 Route::get('about_us', function () {
     return view('about_us');
 });
+
+
+Route::get('author_dashboard', function () {
+    return view('author_dashboard');
+});
+
+Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');

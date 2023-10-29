@@ -17,7 +17,13 @@
           Login
         </div>
         <div class="card-body">
-          <form method="POST" action="{{ route('login') }}">
+          @if(session('message'))
+          <div class="alert alert-danger">
+              {{ session('message') }}
+          </div>
+          @endif
+
+          <form method="POST" action="{{ route('authorLogin') }}">
           {{ csrf_field() }}
           <div class="form-group">
               <label for="email">Email</label>

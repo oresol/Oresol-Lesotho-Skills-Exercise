@@ -1,28 +1,28 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use App\Author;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // Import the Auth facade
+use Illuminate\Support\Facades\Auth;
 
 class AuthorLoginController extends Controller
 {
-    public function LoginAuthor(Request $request) {
+    public function loginAuthor(Request $request)
+    {
         $email = $request->input('email');
         $password = $request->input('password');
-    
-        // Find the user by email (assuming email is unique)
+
         $user = Author::where('email', $email)->first();
-    
+
         if (!$user) {
-            return response()->json(['status' => 400, 'message' => 'Login Fail, please check your email']);
+            return redirect()->back()->with('message', 'Login failed: Email not found');
         }
-    
+
         if ($user->password == $password) {
-            // Password matches, authentication is successful
             return view('about_us');
         } else {
-            return response()->json(['status' => 400, 'message' => 'Login Fail, please check your password']);
+            return redirect()->back()->with('message', 'Login failed: Incorrect password');
         }
     }
-}    
+}
+
