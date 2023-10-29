@@ -22,4 +22,12 @@ class PublishArticlesController extends Controller
         $article_info->save();
         return redirect('publish_article')->with('success', 'Article Published Successfully');
     }
+
+
+    public function retrieveArticles(Request $request){
+
+        $articles = PublishArticle::latest()->paginate(6);
+        return view('article_data', ['article_data' => $articles]);
+      
+    }
 }

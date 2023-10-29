@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('articles', function () {
+    return view('articles');
+});
+
 
 Route::get('login', function () {
     return view('login');
@@ -36,4 +40,5 @@ Route::get('author_dashboard', function () {
 
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
 Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
+Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('articles');
 
