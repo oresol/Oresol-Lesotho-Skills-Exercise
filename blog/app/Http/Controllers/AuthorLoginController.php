@@ -9,6 +9,7 @@ class AuthorLoginController extends Controller
 {
     public function loginAuthor(Request $request)
     {
+      
         $email = $request->input('email');
         $password = $request->input('password');
 

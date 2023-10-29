@@ -18,15 +18,31 @@
           Create an Article
         </div>
         <div class="card-body">
-          <form method="POST" action="">
+        @if(session('message'))
+            <div class="alert alert-danger">
+              {{ session('message') }}
+            </div>
+          @endif
+
+          @if(session('success'))
+            <div class="alert alert-success">
+              {{ session('success') }}
+            </div>
+          @endif
+          <form method="POST" action="{{ route('publishArticle') }}">
+          {{ csrf_field() }}
+          <div class="form-group">
+              <label for="author_name">Author Name</label>
+              <input type="text" class="form-control" id="author_name" name="author_name" placeholder="Enter Author Name" required>
+            </div>
             <div class="form-group">
               <label for="article_title">Article Title</label>
               <input type="text" class="form-control" id="article_title" name="article_title" placeholder="Enter the article title" required>
             </div>
 
             <div class="form-group">
-              <label for="article_story">Article Story</label>
-              <textarea class="form-control" id="article_story" name="article_story" rows="15" placeholder="Write the entire article here" required></textarea>
+              <label for="article_body">Article Story</label>
+              <textarea class="form-control" id="article_story" name="article_body" rows="15" placeholder="Write the entire article here" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Publish Article</button>
@@ -45,3 +61,4 @@
 </html>
 
 @endsection
+

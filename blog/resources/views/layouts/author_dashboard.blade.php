@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sidebar Menu Example</title>
-    <!-- Add Bootstrap CSS link -->
+    <title>Author Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add your custom CSS here, if needed -->
     <style>
-        /* Add your custom CSS for styling the sidebar here */
         .sidebar {
             height: 100%;
             width: 250px;
@@ -33,7 +30,7 @@
         .content {
             margin-left: 250px;
             padding: 15px;
-            text-align: center; /* Center-align the content */
+            text-align: center; 
         }
     </style>
 </head>

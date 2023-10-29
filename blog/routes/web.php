@@ -35,3 +35,5 @@ Route::get('author_dashboard', function () {
 
 
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
+Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
+
