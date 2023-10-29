@@ -3,26 +3,19 @@
 namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth; // Import the Auth facade
 
 class AuthorLoginController extends Controller
 {
-    public function LoginAuthor (request $request ){
+    public function LoginAuthor(Request $request) {
+        $credentials = $request->only('email', 'password');
 
-        $email=$request->input('email');
-        $password = $request->input('password');
-
-        $user = Author::where('email', '=', $email)->first();
-        $userPass = Author::where('password', '=', $password)->first();
-        if (!$user) {
-           return response()->json(['status'=>400, 'message' => 'Login Fail, please check email address']);
+        if (Auth::attempt($credentials)) {
+           
+            return view('add_article');
+        } else {
+           
+            return response()->json(['status' => 400, 'message' => 'Login Fail, please check your credentials']);
         }
-        if (!$userPass) {
-           return response()->json(['status'=>400, 'message' => 'Login Fail, pls check password']);
-        }
-
-        return view('add_article');
     }
-
-
 }
