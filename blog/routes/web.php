@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ PublishArticlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,14 +16,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('articles', function () {
-    return view('articles');
-});
 
 
 Route::get('login', function () {
     return view('login');
 });
+
+Route::get('article_data', function () {
+    return view('article_data');
+});
+
 
 Route::get('about_us', function () {
     return view('about_us');
@@ -40,5 +43,6 @@ Route::get('author_dashboard', function () {
 
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
 Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
-Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('articles');
+Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('article_data');
+
 

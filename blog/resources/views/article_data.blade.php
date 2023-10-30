@@ -6,7 +6,7 @@
 </div>
 <div class="container">
     <div class="card-deck row">
-        @foreach ($article_data as $article)
+    @foreach ( $published_articles as $article )
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card">
                     <div class="view overlay">
@@ -16,8 +16,8 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ $article->article_title }}</h4>
-                        <p class="card-text">{{ $article->article_body }}</p>
                         <p>Author: {{ $article->author_name }}</p>
+                        <p class="card-text">{{ $article->article_body }}</p>
                         <a href="" class="btn btn-primary btn-md">Read more</a>
                     </div>
                 </div>
