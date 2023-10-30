@@ -10,7 +10,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #333;
+            background-color: #0a75ad;
             padding-top: 20px;
         }
 

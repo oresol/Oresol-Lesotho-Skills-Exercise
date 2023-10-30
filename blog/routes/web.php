@@ -31,6 +31,9 @@ Route::get('about_us', function () {
     return view('about_us');
 });
 
+Route::get('full_story', function () {
+    return view('full_story');
+});
 
 Route::get('publish_article', function () {
     return view('publish_article');
@@ -44,5 +47,6 @@ Route::get('author_dashboard', function () {
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
 Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
 Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('article_data');
+Route::get('/articles/{id}', 'PublishArticlesController@displayFullStory')->name('full_story');
 
 

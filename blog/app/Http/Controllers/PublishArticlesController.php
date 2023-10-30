@@ -31,4 +31,10 @@ class PublishArticlesController extends Controller
         return view('article_data')->with(['published_articles' => $articles]);
     
     }
+
+    public function displayFullStory($id)
+{
+    $article = PublishArticle::find($id); 
+    return view('full_story', ['article' => $article]);
+}
 }

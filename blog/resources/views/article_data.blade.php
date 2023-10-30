@@ -18,7 +18,7 @@
                         <h4 class="card-title">{{ $article->article_title }}</h4>
                         <p>Author: {{ $article->author_name }}</p>
                         <p class="card-text">{{ $article->article_body }}</p>
-                        <a href="" class="btn btn-primary btn-md">Read more</a>
+                        <a href="{{ route('full_story', ['id' => $article->id]) }}" class="btn btn-primary btn-md">Read more</a>
                     </div>
                 </div>
             </div>
