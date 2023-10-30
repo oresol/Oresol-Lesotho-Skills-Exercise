@@ -7,7 +7,7 @@
 <div class="container">
     <div class="card-deck row">
     @foreach ( $published_articles as $article )
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="view overlay">
                         <a href="#!">
@@ -17,7 +17,10 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ $article->article_title }}</h4>
                         <p>Author: {{ $article->author_name }}</p>
-                        <p class="card-text">{{ $article->article_body }}</p>
+                        <p class="card-text">
+                        {{ substr($article->article_body, 0, 200) }}{{ strlen($article->article_body) > 200 ? '...' : '' }}
+                        <span class="article-content" style="display: none;">{{ substr($article->article_body, 200) }}</span>
+                    </p>
                         <a href="{{ route('full_story', ['id' => $article->id]) }}" class="btn btn-primary btn-md">Read more</a>
                     </div>
                 </div>
