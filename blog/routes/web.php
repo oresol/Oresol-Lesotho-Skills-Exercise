@@ -52,7 +52,13 @@ Route::get('author_articles', function () {
     return view('author_articles');
 });
 
+Route::get('add_categories', function () {
+    return view('add_categories');
+});
 
+Route::get('manage_categories', function () {
+    return view('manage_categories');
+});
 
 
 
@@ -61,10 +67,13 @@ Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publ
 Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('article_data');
 Route::get('/articles/{id}', 'PublishArticlesController@displayFullStory')->name('full_story');
 
+
 Route::get('published_articles', 'AuthorLoginController@AuthorArticles')->name('published_articles');
 Route::get('/author_articles/{id}', 'AuthorLoginController@displayEntireArticle')->name('author_articles');
 Route::delete('delete_article/{id}', 'AuthorLoginController@deleteArticle')->name('delete_article');
 Route::get('edit_article/{id}', 'AuthorLoginController@editArticle')->name('edit_article');
 Route::put('update_article/{id}', 'AuthorLoginController@updateArticle')->name('update_article');
+Route::post('/add_category', 'AuthorLoginController@addCategory')->name('add_category');
+Route::post('/display_categories', 'AuthorLoginController@displayCategories')->name('display_categories');
 
 

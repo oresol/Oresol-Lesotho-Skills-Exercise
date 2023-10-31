@@ -39,7 +39,8 @@
     <div class="sidebar">
         <a href="publish_article">Write Article</a>
         <a href="published_articles">Published Articles</a>
-        <a href="#">Services</a>
+        <a href="add_categories">Add Categories</a>
+        <a href="manage_categories">Manage Categories</a>
         <a href="#">Logout</a>
     </div>
 

@@ -5,6 +5,7 @@ use App\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\PublishArticle;
+use App\Categories;
 use DB;
 
 class AuthorLoginController extends Controller
@@ -80,5 +81,29 @@ class AuthorLoginController extends Controller
         return redirect()->back()->with('success', 'Article Updated Successfully');
     }
 
+
+    public function AddCategory(Request $request)
+        {
+            $category_info = new Categories;
+            $user_id = session('user_id');
+            $category_info->author_id = $user_id;
+            $category_info->category_name = $request->input('category_name'); 
+
+            $existingCategory = Categories::where('category_name', $category_info->category_name)->first();
+
+            if ($existingCategory) {
+                return redirect('add_categories')->with('message', 'Failed: The Category is already available');
+            }
+
+            $category_info->save();
+            return redirect('add_categories')->with('success', 'Category Added Successfully');
+        }
+
+        public function displayCategories(){
+            $user_id = session('user_id');
+            $categories = Categories::where('author_id', $user_id)->get();
+            dd($categories);
+            return view('publish_article', ['categories' => $categories]);
+        }
 }
 

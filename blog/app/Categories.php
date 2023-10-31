@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    
     protected $table = 'categories';
-    protected $fillable = ['category_name'];
+    protected $fillable = ['category_name', 'author_id'];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
+    }
 }
+
