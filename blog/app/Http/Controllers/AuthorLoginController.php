@@ -105,5 +105,27 @@ class AuthorLoginController extends Controller
             dd($categories);
             return view('publish_article', ['categories' => $categories]);
         }
+
+        public function editCategories($id){
+            $articles = Categories::find($id);
+           return view('manage_categories', ['categories' => $categories]);
+        }
+
+
+        public function updateCategories(Request $request, $id){
+            $this->validate($request,[
+                'category_name'=>'required',
+            
+            ]);
+            $category_name = $request->input('category_name');
+            DB::update('UPDATE categories SET category_name = ? WHERE id = ?', [$category_name, $id]);
+            return redirect()->back()->with('success', 'Category Updated Successfully');
+        }
+
+
+        public function deleteCategories($id){
+            DB::table('categories')->where('id', $id)->delete();
+            return redirect()->back()->with('success', 'Category deleted Successfully');
+        }
 }
 

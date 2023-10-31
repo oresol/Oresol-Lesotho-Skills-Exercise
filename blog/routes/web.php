@@ -75,5 +75,9 @@ Route::get('edit_article/{id}', 'AuthorLoginController@editArticle')->name('edit
 Route::put('update_article/{id}', 'AuthorLoginController@updateArticle')->name('update_article');
 Route::post('/add_category', 'AuthorLoginController@addCategory')->name('add_category');
 Route::post('/display_categories', 'AuthorLoginController@displayCategories')->name('display_categories');
+Route::get('/edit_categories/{id}', 'AuthorLoginController@editCategories')->name('edit_categories');
+Route::put('/update_categories/{id}', 'AuthorLoginController@updateCategories')->name('update_categories');
+Route::delete('/delete_categories/{id}', 'AuthorLoginController@deleteCategories')->name('delete_categories');
+
 
 
