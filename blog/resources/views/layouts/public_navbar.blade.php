@@ -19,7 +19,7 @@
         <a class="nav-link" href="about_us">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login">Login</a>
+        <a class="nav-link" href="author_login">Login</a>
       </li>
 
     </ul>

@@ -99,10 +99,9 @@ class AuthorLoginController extends Controller
             return redirect('add_categories')->with('success', 'Category Added Successfully');
         }
 
-        public function displayCategories(){
+        public function displayCategories() {
             $user_id = session('user_id');
-            $categories = Categories::where('author_id', $user_id)->get();
-            dd($categories);
+            $categories =Categories::where('author_id', $user_id)->paginate(5);
             return view('publish_article', ['categories' => $categories]);
         }
 

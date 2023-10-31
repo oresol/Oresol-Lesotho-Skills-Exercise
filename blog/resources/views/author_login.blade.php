@@ -23,7 +23,7 @@
           </div>
           @endif
 
-          <form method="POST" action="{{ route('authorLogin') }}">
+          <form method="POST" action="{{ route('author_login') }}">
           {{ csrf_field() }}
           <div class="form-group">
               <label for="email">Email</label>
