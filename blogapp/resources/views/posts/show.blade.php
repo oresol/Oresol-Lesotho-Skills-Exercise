@@ -9,14 +9,16 @@
                     <p class="card-text badge bg-success  fs-6">{{ $article->category->category_name }}</p>
                     <p class="card-text">
                         {{ $article->content }}</p>
-                    <div class="d-flex gap-3">
+                    @if (Auth::user())
+                     <div class="d-flex gap-3">
                         <a href="/articles/{{ $article->id }}/edit" class="btn btn-primary">Edit</a>
                         <form action="/articles/{{ $article->id }}" method="POST" class="d-inline">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                    </div>
+                    </div>   
+                    @endif       
                 </div>
             </div>
         </div>

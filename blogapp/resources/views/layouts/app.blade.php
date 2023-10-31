@@ -50,7 +50,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard/articles">Articles</a>
+                                    <a class="btn btn-success" href="/dashboard/articles">CreateArticle</a>
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="/dashboard/catergories">Categories</a>
