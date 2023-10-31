@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\categories;
 use App\Models\articles;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,9 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+         Paginator::useBootstrapFive();
          $categories = categories::all();
        View::share('categories', $categories);
-        $articles = articles::all();
+        $articles = articles::paginate(5);
        View::share('articles', $articles);
     }
     
