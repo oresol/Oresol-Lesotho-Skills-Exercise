@@ -38,8 +38,9 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="publish_article">Write Article</a>
-        <a href="#">Published Articles</a>
+        <a href="published_articles">Published Articles</a>
         <a href="#">Services</a>
+        <a href="#">Logout</a>
     </div>
 
     @yield('content')

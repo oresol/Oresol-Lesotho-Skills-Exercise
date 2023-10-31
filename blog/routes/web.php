@@ -43,10 +43,15 @@ Route::get('author_dashboard', function () {
     return view('author_dashboard');
 });
 
+Route::get('published_articles', function () {
+    return view('published_articles');
+});
 
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
 Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
 Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('article_data');
 Route::get('/articles/{id}', 'PublishArticlesController@displayFullStory')->name('full_story');
+
+Route::get('published_articles', 'AuthorLoginController@AuthorArticles')->name('published_articles');
 
 

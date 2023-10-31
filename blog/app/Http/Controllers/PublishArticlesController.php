@@ -10,10 +10,13 @@ class PublishArticlesController extends Controller
     {
       
         $article_info = new PublishArticle;
+        $user_id = session('user_id');
+
         $article_info->author_name = $request->input('author_name');
         $article_info->article_title = $request->input('article_title');
         $article_info->article_body = $request->input('article_body');
-
+        $article_info->author_id = $user_id;
+        
         $existingArticle = PublishArticle::where('article_title',  $article_info->article_title)->first();
 
         if ($existingArticle) {

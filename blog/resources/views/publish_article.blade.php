@@ -39,7 +39,10 @@
               <label for="article_title">Article Title</label>
               <input type="text" class="form-control" id="article_title" name="article_title" placeholder="Enter the article title" required>
             </div>
-
+            <div class="form-group">
+              <label for="article_image">Upload Image</label>
+              <input type="file" class="form-control-file" id="article_image" name="article_image">
+           </div>
             <div class="form-group">
               <label for="article_body">Article Story</label>
               <textarea class="form-control" id="article_story" name="article_body" rows="15" placeholder="Write the entire article here" required></textarea>

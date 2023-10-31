@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Article Publisher</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -24,8 +24,8 @@
                 <div class="col">
                     <div class="px-5 py-5 mt-5">
                         <div class="px-2 py-2">
-                            <h4>Get all the latest news needs Here</h4>
-                            <p> An online News portal with latest news, learn what is happening across the globe</p>
+                            <h4>Get all the latest Articles Here</h4>
+                            <p> An online Article portal with latest news, learn what is happening across the globe</p>
                         </div>
                         <div class="px-2 py-2">
                             <a href="article_data" class="btn btn-outline-primary">Check Our latest news</a>

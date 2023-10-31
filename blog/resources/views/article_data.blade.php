@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $article->article_title }}</h4>
+                        <h5 class="card-title">{{ $article->article_title }}</h5>
                         <p>Author: {{ $article->author_name }}</p>
                         <p class="card-text">
                         {{ substr($article->article_body, 0, 200) }}{{ strlen($article->article_body) > 200 ? '...' : '' }}

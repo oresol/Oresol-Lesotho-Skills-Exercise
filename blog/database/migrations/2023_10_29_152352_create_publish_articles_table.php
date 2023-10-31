@@ -18,6 +18,7 @@ class CreatePublishArticlesTable extends Migration
             $table->string('author_name');
             $table->string('article_title');
             $table->text('article_body');
+            $table->string('author_id');
             $table->timestamps();
         });
     }
