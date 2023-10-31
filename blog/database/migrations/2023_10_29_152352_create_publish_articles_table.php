@@ -18,10 +18,13 @@ class CreatePublishArticlesTable extends Migration
             $table->string('author_name');
             $table->string('article_title');
             $table->text('article_body');
-            $table->string('author_id');
+            $table->string('category');
+            $table->unsignedInteger('author_id'); 
+            $table->foreign('author_id')->references('id')->on('author_table'); 
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

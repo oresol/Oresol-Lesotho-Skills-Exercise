@@ -53,9 +53,32 @@ class AuthorLoginController extends Controller
         return view('author_articles', ['article' => $article]);
     }
 
+   public function editArticle($id)
+   {
+       $articles = PublishArticle::find($id);
+       return view('author_articles', ['article' => $article]);
+   }
+
     public function deleteArticle($id){
-        DB::delete('delete from publish_articles where id = ?',[$id]);
-        return redirect('author_articles')->with('success', 'Article deleted Successfully');
+            DB::table('publish_articles')->where('id', $id)->delete();
+            return redirect()->back()->with('success', 'Article deleted Successfully');
+    
     }
+
+
+    public function updateArticle(Request $request, $id)
+    {
+        $this->validate($request,[
+            'author_name'=>'required',
+            'article_title' => 'required',
+            'article_body' => 'required'
+        ]);
+        $author_name = $request->input('author_name');
+        $article_title = $request->input('article_title');
+        $article_body = $request->input('article_body');
+        DB::update('UPDATE publish_articles SET author_name = ?, article_title = ?, article_body = ? WHERE id = ?', [$author_name, $article_title, $article_body, $id]);
+        return redirect()->back()->with('success', 'Article Updated Successfully');
+    }
+
 }
 

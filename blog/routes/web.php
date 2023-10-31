@@ -64,5 +64,7 @@ Route::get('/articles/{id}', 'PublishArticlesController@displayFullStory')->name
 Route::get('published_articles', 'AuthorLoginController@AuthorArticles')->name('published_articles');
 Route::get('/author_articles/{id}', 'AuthorLoginController@displayEntireArticle')->name('author_articles');
 Route::delete('delete_article/{id}', 'AuthorLoginController@deleteArticle')->name('delete_article');
+Route::get('edit_article/{id}', 'AuthorLoginController@editArticle')->name('edit_article');
+Route::put('update_article/{id}', 'AuthorLoginController@updateArticle')->name('update_article');
 
 

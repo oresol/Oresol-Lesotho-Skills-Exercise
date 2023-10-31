@@ -47,7 +47,10 @@
               <label for="article_body">Article Story</label>
               <textarea class="form-control" id="article_story" name="article_body" rows="15" placeholder="Write the entire article here" required></textarea>
             </div>
-
+            <div class="form-group">
+              <label for="article_body">Article Story</label>
+              <textarea class="form-control" id="article_story" name="article_body" rows="15" placeholder="Write the entire article here" required></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Publish Article</button>
           </form>
         </div>
