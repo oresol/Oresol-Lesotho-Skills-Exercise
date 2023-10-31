@@ -20,4 +20,8 @@ class DashboardController extends Controller
     {
          return view('tags.create');
     }
+    public function aboutme()
+    {
+         return view('about.about');
+    }
 }

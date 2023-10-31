@@ -13,7 +13,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('categories.index')->with('categories', categories::all());
+        return view('categories.index')->with('categories', categories::paginate(6));
     }
 
     /**

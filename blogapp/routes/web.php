@@ -30,8 +30,8 @@ Route::resource('/category', CategoriesController::class);
 Route::prefix('dashboard')->group(function () {
    Route::get( '/catergories', [App\Http\Controllers\DashboardController::class, 'createCategory'] );
    Route::get( '/articles', [App\Http\Controllers\DashboardController::class, 'createPost'] ); 
-   Route::get( '/tags', [App\Http\Controllers\DashboardController::class, 'createTags'] );  
-    
+   Route::get( '/tags', [App\Http\Controllers\DashboardController::class, 'createTags'] );
+   Route::get( '/about', [App\Http\Controllers\DashboardController::class, 'aboutme'] );  
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

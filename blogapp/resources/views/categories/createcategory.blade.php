@@ -38,6 +38,7 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
+                @if (!empty($categories) && $categories->count())
                 @foreach ($categories as $category)
                     <tr>
                         <th scope="row">
@@ -56,9 +57,18 @@
                         </td>
                     </tr>
                 @endforeach
-
+                @else
+                <div class="col-sm-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="fs-2 fw-bold text-center">No  Categories</h5>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </tbody>
         </table>
+         {!! $categories->links()!!}
     </div>
 </div>
 @endsection
