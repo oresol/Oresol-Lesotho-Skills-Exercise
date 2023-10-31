@@ -39,6 +39,7 @@ Route::get('publish_article', function () {
     return view('publish_article');
 });
 
+
 Route::get('author_dashboard', function () {
     return view('author_dashboard');
 });
@@ -47,11 +48,21 @@ Route::get('published_articles', function () {
     return view('published_articles');
 });
 
+Route::get('author_articles', function () {
+    return view('author_articles');
+});
+
+
+
+
+
 Route::post('login','AuthorLoginController@LoginAuthor')->name('authorLogin');
 Route::post('publishArticle','PublishArticlesController@AddArticle')->name('publishArticle');
 Route::get('article_data', 'PublishArticlesController@retrieveArticles')->name('article_data');
 Route::get('/articles/{id}', 'PublishArticlesController@displayFullStory')->name('full_story');
 
 Route::get('published_articles', 'AuthorLoginController@AuthorArticles')->name('published_articles');
+Route::get('/author_articles/{id}', 'AuthorLoginController@displayEntireArticle')->name('author_articles');
+Route::delete('delete_article/{id}', 'AuthorLoginController@deleteArticle')->name('delete_article');
 
 

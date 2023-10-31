@@ -45,5 +45,17 @@ class AuthorLoginController extends Controller
         }
     }
     
+
+    public function displayEntireArticle($id)
+
+    {
+        $article = PublishArticle::find($id); 
+        return view('author_articles', ['article' => $article]);
+    }
+
+    public function deleteArticle($id){
+        DB::delete('delete from publish_articles where id = ?',[$id]);
+        return redirect('author_articles')->with('success', 'Article deleted Successfully');
+    }
 }
 
