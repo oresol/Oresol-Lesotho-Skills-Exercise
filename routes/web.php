@@ -25,6 +25,7 @@ Route::get('/', [ArticleController::class, 'index'])->name('base');
 Route::get('/home', [ArticleController::class, 'index'])->name('base');
 Route::get('/get-create', [ArticleController::class, 'getCreate'])->name('getcreate');
 Route::get('/list-articles', [ArticleController::class, 'index'])->name('articles');
+Route::get('/view-article/{id}', [ArticleController::class, 'viewArticle'])->name('viewarticle');
 Route::get('/edit-article/{id}', [ArticleController::class, 'getEditArticle'])->name('geteditarticle');
 Route::get('/manage-props', [ArticleTagsController::class, 'manageProps'])->name('manageprops');
 Route::post('/home', [ArticleController::class, 'index'])->name('basepost');

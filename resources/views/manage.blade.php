@@ -28,7 +28,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <ul class="list-group">
+                    <ul class="list-group mb-3">
                         @foreach ($tags as $tag)
                             <li class="list-group-item">
                                 <form id="{{$tag->tagdesc.'fm'}}" class="w-100 my-2" style="display: none" action="{{route('edittag', $tag->id)}}" method="POST">
@@ -81,7 +81,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <ul class="list-group">
+                    <ul class="list-group mb-3">
                         @foreach ($categories as $category)
                             <li class="list-group-item">
                                 <form id="{{$category->catdesc.'fm'}}" class="w-100 my-2" style="display: none" action="{{route('editcategory', $category->id)}}" method="POST">
@@ -109,6 +109,7 @@
                             </li>
                         @endforeach 
                     </ul>
+
                 </div>
                 </div>
             </div>

@@ -47,6 +47,7 @@ class ArticleController extends Controller
         $articleDto->title = $article->title;
         $articleDto->fullText = $article->fullText;
         $articleDto->category = $category->catdesc;
+        $articleDto->image = $article->image;
 
         $tags  = TagController::getArticleTags($article->id);
         
@@ -66,17 +67,26 @@ class ArticleController extends Controller
     {
          $validated = $request->validate([
             'title' => ['required', 'max:255','alpha_num:ascii'],
-            'fullText' => ['required'],
+            'fullText' => ['required', 'max:699'],
+            'image' => ['image','mimes:jpg,png,jpeg,gif,svg','max:2048'],
             'tagdesc' => ['required', 'max:255'],
             'catdesc' => ['required', 'max:255','alpha_num:ascii'],
         ]);
+
+        $image_path = null;
+
+        if($request->hasFile('image')) {
+            $img_ext = $request->file('image')->getClientOriginalExtension();
+            $filename = 'company-image-' . time() . '.' . $img_ext;
+            $image_path = $request->file('image')->store('image', 'public');
+        }
 
         $cat_id = CategoryController::storeCategory($request->catdesc);
 
         DB::table('articles')->where('id', $id)->update([
             'title'=> $request->title, 
             'category_id'=> $cat_id, 
-            'image'=> $request->image, 
+            'image'=> $image_path,
             'fullText'=> $request->fullText]);
 
         ArticleTagsController::storeArticleTag($request->tagdesc, $id );
@@ -109,19 +119,27 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'max:255','alpha_num:ascii'],
-            'fullText' => ['required'],
+            'fullText' => ['required', 'max:699'],
+            'image' => ['image','mimes:jpg,png,jpeg,gif,svg','max:2048'],
             'catdesc' => ['required', 'max:255','alpha_num:ascii'],
             'tagdesc' => ['required', 'max:255'],
+
         ]);
         
-
         $cat_id = CategoryController::storeCategory($request->catdesc);
         
         $article = new Article();
         $article->title = $request->title;
         $article->fullText = $request->fullText;
         $article->category_id = $cat_id;
-        $article->image = $request->image;
+
+        
+        if($request->hasFile('image')) {
+            $img_ext = $request->file('image')->getClientOriginalExtension();
+            $filename = 'company-image-' . time() . '.' . $img_ext;
+            $image_path = $request->file('image')->store('image', 'public');
+            $article->image = $image_path;
+          }
         
         $article->save();
 
@@ -130,16 +148,21 @@ class ArticleController extends Controller
         return back()->with('success', 'Successfully created an article');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
+
     public function deleteArticle(int $id)
     {
         $article = Article::find($id);
         $article->delete();
+
+        return redirect('/');
+    }
+
+    public function viewArticle(int $id)
+    {
+        $article = Article::find($id);
+        $articleDto = $this->createArticleDTo($article); 
+
+        return view("article",['article' => $articleDto]);
 
         return back();
     }

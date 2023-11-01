@@ -1,0 +1,27 @@
+/* button{
+    width: 5rem;
+} */
+
+
+.italic{
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.default-background {
+    width: 100%;
+    height: 100%;
+    background: transparent
+      linear-gradient(
+        120deg,
+        #bd0373 0%,
+        #442c4e 28%,
+        #262e54 44%,
+        #005a88 60%,
+        #4894ba 80%,
+        #2ed5ff 100%
+      )
+      0% 0% no-repeat padding-box;
+      
+    overflow: hidden;
+  }

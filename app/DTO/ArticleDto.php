@@ -9,7 +9,9 @@ class ArticleDto
     public $title;
     public $fullText;
     public $category;
+    public $image;
     public $tags = [];
+
 }
 
 ?>

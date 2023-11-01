@@ -71,3 +71,11 @@ Here's the list of features you need to try to implement in your code:
 - File Uploads and Storage Folder Basics
 - Table Pagination
 
+
+**How To Run The Apllication**	
+
+- Set Up MYsql database named blog and set up username and passowrd in .env file
+- Run : npm install
+- Run : npm run dev
+- Run : php artisan serve
+
