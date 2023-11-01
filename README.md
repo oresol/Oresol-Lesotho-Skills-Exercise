@@ -75,6 +75,8 @@ Here's the list of features you need to try to implement in your code:
 **How To Run The Apllication**	
 
 - Set Up MYsql database named blog and set up username and passowrd in .env file
+- Run : php artisan migrate
+- Create user in users table that will be used to log into the system
 - Run : npm install
 - Run : npm run dev
 - Run : php artisan serve
